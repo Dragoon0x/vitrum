@@ -13,6 +13,7 @@ function Slider({
   max = 100,
   "aria-label": ariaLabel,
   thumbLabels,
+  onPointerDown,
   ...props
 }: React.ComponentProps<typeof SliderPrimitive.Root> & {
   /** Accessible names for each thumb (falls back to aria-label). */
@@ -28,6 +29,23 @@ function Slider({
     [value, defaultValue, min],
   );
 
+  // While the pointer holds a thumb it swells into a magnifying capsule.
+  // The grabbed thumb is whichever one holds focus (focus follows the
+  // grab), so multi-thumb sliders inflate only the one being dragged.
+  const [dragging, setDragging] = React.useState(false);
+  const [activeThumb, setActiveThumb] = React.useState(-1);
+
+  React.useEffect(() => {
+    if (!dragging) return;
+    const end = () => setDragging(false);
+    window.addEventListener("pointerup", end);
+    window.addEventListener("pointercancel", end);
+    return () => {
+      window.removeEventListener("pointerup", end);
+      window.removeEventListener("pointercancel", end);
+    };
+  }, [dragging]);
+
   return (
     <SliderPrimitive.Root
       data-slot="slider"
@@ -36,6 +54,10 @@ function Slider({
       value={value}
       min={min}
       max={max}
+      onPointerDown={(event) => {
+        if (event.pointerType !== "touch" || event.isPrimary) setDragging(true);
+        onPointerDown?.(event);
+      }}
       className={cn(
         "relative flex w-full touch-none select-none items-center data-[disabled]:opacity-50",
         "data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col",
@@ -69,10 +91,13 @@ function Slider({
           data-slot="slider-thumb"
           data-glass=""
           data-material="film"
+          data-vt-optics-skip=""
+          data-inflated={dragging && activeThumb === index ? "" : undefined}
+          onFocus={() => setActiveThumb(index)}
           className={cn(
-            "vt-refract-circle-2 vt-ring block size-5 shrink-0 rounded-full shadow-glass-sm transition-[box-shadow] duration-200",
-            "hover:shadow-glass-md disabled:pointer-events-none",
-            "[--glass-tint-a:0.65] [--glass-tint-c:oklch(1_0_0)]",
+            "vt-liquify vt-ring block size-5 shrink-0 rounded-full shadow-glass-sm transition-[box-shadow,scale] duration-300 ease-[var(--ease-spring)]",
+            "hover:shadow-glass-md data-[inflated]:shadow-glass-md disabled:pointer-events-none",
+            "[--glass-tint-a:0.65] [--glass-tint-c:oklch(1_0_0)] [--vt-inflate:1.7]",
           )}
         />
       ))}

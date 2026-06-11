@@ -5,7 +5,7 @@ import { SliderDemo } from "@/registry/vitrum/demos/slider-demo";
 export const sliderDoc: ComponentDoc = {
   slug: "slider",
   title: "Slider",
-  description: "Value selection with refractive glass thumbs. Multiple values render multiple thumbs.",
+  description: "Value selection with glass thumbs that swell into magnifying capsules while held — the track bends through them — then spring back on release. Multiple values render multiple thumbs.",
   registryItem: "slider",
   demos: [
     { id: "default", title: "Default", file: "registry/vitrum/demos/slider-demo.tsx", component: SliderDemo },

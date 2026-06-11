@@ -92,6 +92,8 @@ function eligible(el: Element): el is HTMLElement {
   if (!(el instanceof HTMLElement)) return false;
   if (!el.hasAttribute("data-glass")) return false;
   if (el.dataset.material === "veil") return false;
+  // surfaces whose refraction is state-driven manage their own filter
+  if (el.hasAttribute("data-vt-optics-skip")) return false;
   // laminated (nested) glass never refracts
   if (el.parentElement?.closest("[data-glass]")) return false;
   return true;

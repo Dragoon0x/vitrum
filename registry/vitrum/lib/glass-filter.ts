@@ -134,15 +134,20 @@ export const GLASS_FILTER_PRESETS: readonly GlassFilterSpec[] = [
 
 export type GlassFilterId =
   | (typeof GLASS_FILTER_PRESETS)[number]["id"]
-  | typeof LENS_FILTER_ID;
+  | typeof LENS_FILTER_ID
+  | typeof LENS_SOFT_FILTER_ID;
 
 /**
  * The lens is a different optic: instead of a flat center with bent
  * edges, the whole surface bends toward its middle — true magnification.
+ * The soft variant suits small surfaces (control thumbs) where the full
+ * lens would tear the backdrop apart.
  */
 export const LENS_FILTER_ID = "vt-rf-lens";
 
-function buildLensFilter(): string {
+export const LENS_SOFT_FILTER_ID = "vt-rf-lens-soft";
+
+function buildLensFilter(id: string, displace: number, blur: number): string {
   const size = 240;
   const stops = (axis: "x" | "y") => {
     const at = (offset: number, v: number) => {
@@ -161,10 +166,10 @@ function buildLensFilter(): string {
   const href = `data:image/svg+xml,${encodeURIComponent(map)}`;
 
   return (
-    `<filter id="${LENS_FILTER_ID}" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">` +
+    `<filter id="${id}" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">` +
     `<feImage href="${href}" x="0%" y="0%" width="100%" height="100%" preserveAspectRatio="none" result="map"/>` +
-    `<feDisplacementMap in="SourceGraphic" in2="map" scale="56" xChannelSelector="R" yChannelSelector="G" result="bent"/>` +
-    `<feGaussianBlur in="bent" stdDeviation="0.4" result="soft"/>` +
+    `<feDisplacementMap in="SourceGraphic" in2="map" scale="${displace}" xChannelSelector="R" yChannelSelector="G" result="bent"/>` +
+    `<feGaussianBlur in="bent" stdDeviation="${blur}" result="soft"/>` +
     `<feColorMatrix in="soft" type="saturate" values="1.25"/>` +
     `</filter>`
   );
@@ -172,5 +177,9 @@ function buildLensFilter(): string {
 
 /** All preset filter definitions, concatenated for <defs>. */
 export function buildPresetDefs(): string {
-  return GLASS_FILTER_PRESETS.map(buildRefractionFilter).join("") + buildLensFilter();
+  return (
+    GLASS_FILTER_PRESETS.map(buildRefractionFilter).join("") +
+    buildLensFilter(LENS_FILTER_ID, 56, 0.4) +
+    buildLensFilter(LENS_SOFT_FILTER_ID, 24, 0.25)
+  );
 }

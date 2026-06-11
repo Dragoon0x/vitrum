@@ -360,6 +360,38 @@
     --glass-refract: url(#vt-rf-lens);
   }
 
+  .vt-refract-lens-soft {
+    --glass-refract: url(#vt-rf-lens-soft);
+  }
+
+  /* ---- liquify: thumbs that swell into a magnifying capsule while held ---- */
+
+  .vt-liquify {
+    scale: 1;
+    transition:
+      scale var(--dur-3) var(--ease-spring),
+      --glass-tint-a 200ms var(--ease-out-soft);
+  }
+
+  .vt-liquify[data-inflated] {
+    scale: var(--vt-inflate, 1.6);
+    --glass-refract: url(#vt-rf-lens-soft);
+    --glass-blur: 3px;
+    --glass-tint-a: 0.07;
+    --glass-edge: oklch(1 0 0 / 0.95);
+    --glass-edge-soft: oklch(1 0 0 / 0.4);
+    --glass-inner-light: oklch(1 0 0 / 0.55);
+    --glass-inner-shade: oklch(0 0 0 / 0.18);
+    z-index: 10;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vt-liquify {
+      transition-duration: 100ms;
+      transition-timing-function: ease-out;
+    }
+  }
+
   /* ---- engines ---- */
 
   [data-glass-engine="refract"] [data-glass]::before,

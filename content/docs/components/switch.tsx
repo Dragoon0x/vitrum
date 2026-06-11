@@ -5,7 +5,7 @@ import { SwitchDemo } from "@/registry/vitrum/demos/switch-demo";
 export const switchDoc: ComponentDoc = {
   slug: "switch",
   title: "Switch",
-  description: "A disc of glass riding a recessed track, refracting whatever passes beneath it as it slides.",
+  description: "A disc of glass riding a recessed track. Held down — pointer or Space — it swells into a magnifying capsule that refracts the track, then springs into place.",
   registryItem: "switch",
   demos: [
     { id: "default", title: "Default", file: "registry/vitrum/demos/switch-demo.tsx", component: SwitchDemo },
