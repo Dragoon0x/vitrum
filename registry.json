@@ -610,6 +610,108 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "glass-auth",
+      "type": "registry:block",
+      "title": "Auth",
+      "description": "Sign-in pane: recessed fields, accent action, passkey alternative \u2014 one slab of glass.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "https://vitrum.dev/r/button.json",
+        "https://vitrum.dev/r/checkbox.json",
+        "https://vitrum.dev/r/input.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/blocks/glass-auth.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/glass-auth.tsx"
+        }
+      ]
+    },
+    {
+      "name": "glass-dashboard",
+      "type": "registry:block",
+      "title": "Dashboard",
+      "description": "Operations panel with liquid meters, a sliding period control, and an activity feed.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/avatar.json",
+        "https://vitrum.dev/r/badge.json",
+        "https://vitrum.dev/r/card.json",
+        "https://vitrum.dev/r/gauge.json",
+        "https://vitrum.dev/r/progress.json",
+        "https://vitrum.dev/r/segmented-control.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/blocks/glass-dashboard.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/glass-dashboard.tsx"
+        }
+      ]
+    },
+    {
+      "name": "glass-player",
+      "type": "registry:block",
+      "title": "Player",
+      "description": "Media player with artwork under a magnifying lens and a glass-thumbed scrubber.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "https://vitrum.dev/r/button.json",
+        "https://vitrum.dev/r/lens.json",
+        "https://vitrum.dev/r/slider.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/blocks/glass-player.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/glass-player.tsx"
+        }
+      ]
+    },
+    {
+      "name": "glass-launcher",
+      "type": "registry:block",
+      "title": "Launcher",
+      "description": "A workspace shell made entirely of glass: bar above, palette in the middle, dock below.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react",
+        "cmdk",
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "https://vitrum.dev/r/badge.json",
+        "https://vitrum.dev/r/command.json",
+        "https://vitrum.dev/r/dock.json",
+        "https://vitrum.dev/r/navbar.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/blocks/glass-launcher.tsx",
+          "type": "registry:component",
+          "target": "components/blocks/glass-launcher.tsx"
+        }
+      ]
     }
   ]
 }
