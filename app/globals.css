@@ -41,3 +41,24 @@
 .dark .shiki span {
   color: var(--shiki-dark) !important;
 }
+
+/* static light scene behind component demos — glass needs light */
+.vt-demo-scene {
+  background:
+    radial-gradient(
+      55% 70% at 16% 18%,
+      color-mix(in oklab, var(--aurora-1) 26%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      50% 60% at 86% 28%,
+      color-mix(in oklab, var(--aurora-2) 18%, transparent),
+      transparent 70%
+    ),
+    radial-gradient(
+      60% 65% at 50% 100%,
+      color-mix(in oklab, var(--aurora-3) 18%, transparent),
+      transparent 72%
+    ),
+    var(--background);
+}

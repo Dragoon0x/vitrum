@@ -13,11 +13,14 @@ import { cn } from "@/lib/utils";
 function Navbar({
   className,
   children,
+  position = "fixed",
   ...props
-}: React.ComponentProps<"nav">) {
+}: React.ComponentProps<"nav"> & { position?: "fixed" | "static" }) {
   const [scrolled, setScrolled] = React.useState(false);
+  const fixed = position === "fixed";
 
   React.useEffect(() => {
+    if (!fixed) return;
     let frame = 0;
     const update = () => {
       frame = 0;
@@ -32,10 +35,16 @@ function Navbar({
       window.removeEventListener("scroll", onScroll);
       if (frame) cancelAnimationFrame(frame);
     };
-  }, []);
+  }, [fixed]);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-40 flex justify-center px-4 pt-3">
+    <header
+      className={
+        fixed
+          ? "fixed inset-x-0 top-0 z-40 flex justify-center px-4 pt-3"
+          : "relative flex w-full justify-center"
+      }
+    >
       <nav
         data-slot="navbar"
         data-glass=""
