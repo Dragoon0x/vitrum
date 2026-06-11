@@ -177,8 +177,8 @@
   --shadow-glass-lg: var(--vt-shadow-glass-lg);
   --shadow-glow-accent: var(--vt-glow-accent);
 
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-display: ui-sans-serif, system-ui, "Segoe UI", sans-serif;
   --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
 }
 
@@ -307,6 +307,32 @@
 
   [data-glass][data-tint="none"] {
     --glass-tint-a: 0;
+  }
+
+  /* ---- refraction preset pins (shape-matched bevels) ---- */
+
+  .vt-refract-pill-1 {
+    --glass-refract: url(#vt-rf-pill-1);
+  }
+
+  .vt-refract-pill-2 {
+    --glass-refract: url(#vt-rf-pill-2);
+  }
+
+  .vt-refract-round-2 {
+    --glass-refract: url(#vt-rf-round-2);
+  }
+
+  .vt-refract-round-3 {
+    --glass-refract: url(#vt-rf-round-3);
+  }
+
+  .vt-refract-circle-2 {
+    --glass-refract: url(#vt-rf-circle-2);
+  }
+
+  .vt-refract-circle-3 {
+    --glass-refract: url(#vt-rf-circle-3);
   }
 
   /* ---- engines ---- */

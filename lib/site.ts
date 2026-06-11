@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Vitrum",
   tagline: "Designed in glass.",
   description:
-    "A component library cast in liquid glass — refractive, luminous surfaces for React, with a frost fallback everywhere else.",
+    "Interfaces cast in glass — refractive, luminous React components with a frost fallback everywhere else.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://vitrum.dev",
 } as const;
 

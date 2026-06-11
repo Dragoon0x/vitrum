@@ -1,0 +1,67 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "vitrum",
+  "homepage": "https://vitrum.dev",
+  "items": [
+    {
+      "name": "theme",
+      "type": "registry:theme",
+      "title": "Vitrum Theme",
+      "description": "Material tokens, the glass surface system, and motion primitives. Every Vitrum component depends on this stylesheet.",
+      "files": [
+        {
+          "path": "registry/vitrum/theme/vitrum.css",
+          "type": "registry:file",
+          "target": "~/vitrum.css"
+        }
+      ],
+      "docs": "Import the stylesheet once in your global CSS (after `@import \"tailwindcss\"`): `@import \"../vitrum.css\";` — adjust the relative path to where your globals live."
+    },
+    {
+      "name": "glass",
+      "type": "registry:ui",
+      "title": "Glass",
+      "description": "The material primitive: refractive glass surfaces with engine detection, shared filter definitions, and pointer sheen.",
+      "dependencies": ["radix-ui"],
+      "registryDependencies": ["https://vitrum.dev/r/theme.json", "utils"],
+      "files": [
+        { "path": "registry/vitrum/ui/glass.tsx", "type": "registry:ui" },
+        { "path": "registry/vitrum/ui/glass-root.tsx", "type": "registry:ui" },
+        { "path": "registry/vitrum/ui/glass-defs.tsx", "type": "registry:ui" },
+        { "path": "registry/vitrum/ui/glass-watcher.tsx", "type": "registry:ui" },
+        { "path": "registry/vitrum/lib/glass-filter.ts", "type": "registry:lib" },
+        { "path": "registry/vitrum/lib/glass-engine.ts", "type": "registry:lib" },
+        { "path": "registry/vitrum/hooks/use-sheen.ts", "type": "registry:hook" },
+        { "path": "registry/vitrum/hooks/use-glass-engine.ts", "type": "registry:hook" }
+      ],
+      "docs": "Render <GlassRoot/> once at the top of <body> to enable refraction. Without it, surfaces render in the frost engine."
+    },
+    {
+      "name": "aurora-field",
+      "type": "registry:ui",
+      "title": "Aurora Field",
+      "description": "Ambient gradient backdrop — three drifting light blobs with a noise tile, zero JavaScript. Glass needs light behind it; this is the light.",
+      "registryDependencies": ["https://vitrum.dev/r/theme.json", "utils"],
+      "files": [
+        { "path": "registry/vitrum/ui/aurora-field.tsx", "type": "registry:ui" }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Button",
+      "description": "A pill of glass. Variants for accent, film, destructive, ghost, and link.",
+      "dependencies": ["radix-ui", "class-variance-authority"],
+      "registryDependencies": ["https://vitrum.dev/r/glass.json", "utils"],
+      "files": [{ "path": "registry/vitrum/ui/button.tsx", "type": "registry:ui" }]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "title": "Card",
+      "description": "A slab of glass with header, content, and footer anatomy.",
+      "registryDependencies": ["https://vitrum.dev/r/glass.json", "utils"],
+      "files": [{ "path": "registry/vitrum/ui/card.tsx", "type": "registry:ui" }]
+    }
+  ]
+}
