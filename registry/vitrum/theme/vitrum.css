@@ -1,0 +1,651 @@
+/* ------------------------------------------------------------------ */
+/*  Vitrum — material tokens & glass system                            */
+/*  Engines: html[data-glass-engine="refract" | "frost" | "solid"]     */
+/*  Materials: [data-glass][data-material="film|pane|slab|veil"]       */
+/* ------------------------------------------------------------------ */
+
+:root {
+  /* ---- surface palette (light: "morning fog") ---- */
+  --background: oklch(0.96 0.006 265);
+  --foreground: oklch(0.22 0.035 270);
+  --surface: oklch(0.99 0.002 265);
+  --surface-recessed: oklch(0.93 0.008 265);
+  --card: oklch(0.99 0.002 265);
+  --card-foreground: oklch(0.22 0.035 270);
+  --popover: oklch(0.99 0.002 265);
+  --popover-foreground: oklch(0.22 0.035 270);
+  --primary: oklch(0.52 0.17 277);
+  --primary-foreground: oklch(0.985 0.005 270);
+  --secondary: oklch(0.9 0.012 268);
+  --secondary-foreground: oklch(0.28 0.04 272);
+  --muted: oklch(0.92 0.01 266);
+  --muted-foreground: oklch(0.45 0.03 268);
+  --accent: oklch(0.9 0.014 270);
+  --accent-foreground: oklch(0.25 0.04 272);
+  --destructive: oklch(0.55 0.19 16);
+  --destructive-foreground: oklch(0.985 0.005 270);
+  --success: oklch(0.55 0.13 162);
+  --success-foreground: oklch(0.985 0.005 270);
+  --warning: oklch(0.62 0.13 75);
+  --warning-foreground: oklch(0.985 0.005 270);
+  --border: oklch(0.3 0.04 270 / 0.13);
+  --input: oklch(0.3 0.04 270 / 0.16);
+  --ring: oklch(0.52 0.17 277);
+  --ring-halo: oklch(1 0 0 / 0.85);
+
+  /* ---- aurora hues ---- */
+  --aurora-1: oklch(0.62 0.15 277);
+  --aurora-2: oklch(0.8 0.1 185);
+  --aurora-3: oklch(0.75 0.14 350);
+  --aurora-alpha: 0.34;
+
+  /* ---- glass material ---- */
+  --glass-tint: oklch(0.99 0.003 265);
+  --glass-tint-accent: oklch(0.72 0.1 277);
+  --glass-a-film: 0.42;
+  --glass-a-pane: 0.55;
+  --glass-a-slab: 0.62;
+  --glass-a-veil: 0.78;
+  --glass-saturate: 1.5;
+  --glass-brightness: 1.02;
+  --glass-edge: oklch(1 0 0 / 0.92);
+  --glass-edge-soft: oklch(0.3 0.04 270 / 0.14);
+  --glass-inner-light: oklch(1 0 0 / 0.55);
+  --glass-inner-shade: oklch(0.3 0.04 270 / 0.06);
+  --glass-sheen: oklch(1 0 0 / 0.5);
+  --glass-well: oklch(0.3 0.04 270 / 0.05);
+  --scrim: oklch(0.93 0.01 265 / 0.45);
+
+  /* ---- depth ---- */
+  --vt-shadow-glass-sm: 0 1px 1px oklch(0.2 0.03 270 / 0.05), 0 4px 10px -4px oklch(0.2 0.03 270 / 0.12);
+  --vt-shadow-glass-md: 0 1px 1px oklch(0.2 0.03 270 / 0.06), 0 10px 28px -10px oklch(0.2 0.03 270 / 0.18);
+  --vt-shadow-glass-lg: 0 1px 2px oklch(0.2 0.03 270 / 0.07), 0 24px 56px -16px oklch(0.2 0.03 270 / 0.26);
+  --vt-glow-accent: 0 0 28px oklch(0.62 0.15 277 / 0.2);
+}
+
+.dark {
+  /* ---- surface palette (dark: "void") ---- */
+  --background: oklch(0.13 0.018 265);
+  --foreground: oklch(0.957 0.008 265);
+  --surface: oklch(0.18 0.022 262);
+  --surface-recessed: oklch(0.155 0.02 263);
+  --card: oklch(0.18 0.022 262);
+  --card-foreground: oklch(0.957 0.008 265);
+  --popover: oklch(0.18 0.022 262);
+  --popover-foreground: oklch(0.957 0.008 265);
+  --primary: oklch(0.66 0.16 277);
+  --primary-foreground: oklch(0.985 0.005 270);
+  --secondary: oklch(0.26 0.024 266);
+  --secondary-foreground: oklch(0.93 0.012 268);
+  --muted: oklch(0.24 0.022 266);
+  --muted-foreground: oklch(0.76 0.035 270);
+  --accent: oklch(0.28 0.026 268);
+  --accent-foreground: oklch(0.95 0.01 268);
+  --destructive: oklch(0.66 0.19 16);
+  --destructive-foreground: oklch(0.985 0.005 270);
+  --success: oklch(0.77 0.14 162);
+  --success-foreground: oklch(0.16 0.02 265);
+  --warning: oklch(0.82 0.13 80);
+  --warning-foreground: oklch(0.18 0.025 268);
+  --border: oklch(0.76 0.035 270 / 0.14);
+  --input: oklch(0.76 0.035 270 / 0.18);
+  --ring: oklch(0.66 0.16 277);
+  --ring-halo: oklch(0 0 0 / 0.6);
+
+  --aurora-1: oklch(0.66 0.16 277);
+  --aurora-2: oklch(0.83 0.11 185);
+  --aurora-3: oklch(0.72 0.17 350);
+  --aurora-alpha: 0.3;
+
+  --glass-tint: oklch(0.78 0.045 272);
+  --glass-tint-accent: oklch(0.66 0.16 277);
+  --glass-a-film: 0.07;
+  --glass-a-pane: 0.11;
+  --glass-a-slab: 0.16;
+  --glass-a-veil: 0.55;
+  --glass-saturate: 1.6;
+  --glass-brightness: 1.08;
+  --glass-edge: oklch(1 0 0 / 0.28);
+  --glass-edge-soft: oklch(0 0 0 / 0.3);
+  --glass-inner-light: oklch(1 0 0 / 0.16);
+  --glass-inner-shade: oklch(0 0 0 / 0.12);
+  --glass-sheen: oklch(1 0 0 / 0.2);
+  --glass-well: oklch(0 0 0 / 0.22);
+  --scrim: oklch(0.1 0.015 265 / 0.55);
+
+  --vt-shadow-glass-sm: 0 1px 1px oklch(0 0 0 / 0.18), 0 4px 10px -4px oklch(0 0 0 / 0.3);
+  --vt-shadow-glass-md: 0 1px 1px oklch(0 0 0 / 0.22), 0 10px 28px -10px oklch(0 0 0 / 0.42);
+  --vt-shadow-glass-lg: 0 1px 2px oklch(0 0 0 / 0.26), 0 24px 56px -16px oklch(0 0 0 / 0.55);
+  --vt-glow-accent: 0 0 28px oklch(0.66 0.16 277 / 0.32);
+}
+
+:root {
+  /* ---- motion ---- */
+  --ease-spring: linear(
+    0, 0.1139 5%, 0.3444 10%, 0.5818 15%, 0.7744 20%, 0.9078 25%,
+    0.9873 30%, 1.0261 35%, 1.0386 40%, 1.0365 45%, 1.0282 50%,
+    1.0187 55%, 1.0106 60%, 1.0048 65%, 1.0012 70%, 0.9993 75%,
+    0.9986 80%, 0.9985 85%, 0.9988 90%, 0.9992 95%, 0.9995
+  );
+  --ease-pop: cubic-bezier(0.21, 1.02, 0.39, 1);
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-soft: cubic-bezier(0.5, 0, 0.7, 0.4);
+  --dur-1: 120ms;
+  --dur-2: 200ms;
+  --dur-3: 320ms;
+  --dur-4: 560ms;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-recessed: var(--surface-recessed);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-aurora-1: var(--aurora-1);
+  --color-aurora-2: var(--aurora-2);
+  --color-aurora-3: var(--aurora-3);
+
+  --radius-control: 0.75rem;
+  --radius-field: 0.875rem;
+  --radius-pane: 1.25rem;
+  --radius-sheet: 1.75rem;
+  --radius-pill: 9999px;
+
+  --shadow-glass-sm: var(--vt-shadow-glass-sm);
+  --shadow-glass-md: var(--vt-shadow-glass-md);
+  --shadow-glass-lg: var(--vt-shadow-glass-lg);
+  --shadow-glow-accent: var(--vt-glow-accent);
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+
+/* ------------------------------------------------------------------ */
+/*  Pointer-sheen custom properties (animatable)                       */
+/* ------------------------------------------------------------------ */
+
+@property --vt-sheen-o {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+@property --vt-px {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 50;
+}
+
+@property --vt-py {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
+@layer components {
+  /* ------------------------------------------------------------------ */
+  /*  Glass surface structure                                            */
+  /*                                                                     */
+  /*  root      — stacking context (translateZ), radius, drop shadow     */
+  /*  ::before  — backdrop layer: refraction/frost + tint + sheen        */
+  /*  ::after   — specular ring (masked 1px gradient border)             */
+  /* ------------------------------------------------------------------ */
+
+  [data-glass] {
+    position: relative;
+    border-radius: var(--glass-radius, var(--radius-pane));
+    transform: translateZ(0);
+    /* material defaults (pane) — overridden by [data-material] */
+    --glass-blur: 16px;
+    --glass-tint-a: var(--glass-a-pane);
+    --glass-tint-c: var(--glass-tint);
+    --glass-frost: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
+    transition: --vt-sheen-o 240ms var(--ease-out-soft);
+  }
+
+  [data-glass]::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    transform: translateZ(0);
+    -webkit-backdrop-filter: var(--glass-frost);
+    backdrop-filter: var(--glass-frost);
+    background:
+      radial-gradient(
+        9rem 9rem at calc(var(--vt-px, 50) * 1%) calc(var(--vt-py, 0) * 1%),
+        color-mix(in oklab, var(--glass-sheen) calc(var(--vt-sheen-o, 0) * 100%), transparent),
+        transparent 70%
+      ),
+      color-mix(in oklab, var(--glass-tint-c) calc(var(--glass-tint-a) * 100%), transparent);
+    box-shadow:
+      inset 0 1px 0 var(--glass-inner-light),
+      inset 0 -10px 24px -14px var(--glass-inner-shade);
+  }
+
+  [data-glass]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    border-radius: inherit;
+    pointer-events: none;
+    padding: 1px;
+    background: linear-gradient(
+        var(--glass-edge-angle, 165deg),
+        var(--glass-edge),
+        transparent 38%,
+        transparent 62%,
+        var(--glass-edge-soft)
+      )
+      border-box;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+  }
+
+  /* ---- materials ---- */
+
+  [data-glass][data-material="film"] {
+    --glass-blur: 8px;
+    --glass-tint-a: var(--glass-a-film);
+    --glass-refract: url(#vt-rf-pill-1);
+  }
+
+  [data-glass][data-material="pane"] {
+    --glass-blur: 16px;
+    --glass-tint-a: var(--glass-a-pane);
+    --glass-refract: url(#vt-rf-round-2);
+  }
+
+  [data-glass][data-material="slab"] {
+    --glass-blur: 28px;
+    --glass-tint-a: var(--glass-a-slab);
+    --glass-refract: url(#vt-rf-round-3);
+  }
+
+  /* veil never refracts: overlay-scale SVG filters are the jank source */
+  [data-glass][data-material="veil"] {
+    --glass-blur: 44px;
+    --glass-tint-a: var(--glass-a-veil);
+    --glass-refract: initial;
+  }
+
+  /* ---- tints ---- */
+
+  [data-glass][data-tint="accent"] {
+    --glass-tint-c: var(--glass-tint-accent);
+  }
+
+  [data-glass][data-tint="none"] {
+    --glass-tint-a: 0;
+  }
+
+  /* ---- engines ---- */
+
+  [data-glass-engine="refract"] [data-glass]::before {
+    -webkit-backdrop-filter: var(--glass-refract, var(--glass-frost));
+    backdrop-filter: var(--glass-refract, var(--glass-frost));
+  }
+
+  [data-glass-engine="solid"] [data-glass]::before {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    background: var(--surface);
+  }
+
+  /* ---- laminate guard: nested glass keeps tint + ring, drops backdrop ---- */
+
+  [data-glass] [data-glass]::before {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+
+  [data-glass-engine="solid"] [data-glass] [data-glass]::before {
+    background: var(--surface-recessed);
+  }
+
+  /* ------------------------------------------------------------------ */
+  /*  Inset "glass well" — recessed fields (inputs, tracks)              */
+  /* ------------------------------------------------------------------ */
+
+  .vt-well {
+    background: var(--glass-well);
+    box-shadow:
+      inset 0 1px 2px var(--glass-inner-shade),
+      inset 0 0 0 1px var(--border);
+  }
+
+  [data-glass-engine="solid"] .vt-well {
+    background: var(--surface-recessed);
+  }
+
+  /* ------------------------------------------------------------------ */
+  /*  Motion                                                             */
+  /* ------------------------------------------------------------------ */
+
+  @keyframes vt-pop-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes vt-pop-out {
+    from {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(4px) scale(0.97);
+    }
+  }
+
+  @keyframes vt-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes vt-fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes vt-slide-in-right {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes vt-slide-out-right {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes vt-slide-in-left {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes vt-slide-out-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes vt-slide-in-top {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes vt-slide-out-top {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-100%);
+    }
+  }
+
+  @keyframes vt-slide-in-bottom {
+    from {
+      transform: translateY(100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes vt-slide-out-bottom {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(100%);
+    }
+  }
+
+  @keyframes vt-shimmer {
+    from {
+      background-position: 200% 0;
+    }
+    to {
+      background-position: -200% 0;
+    }
+  }
+
+  @keyframes vt-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes vt-drift-a {
+    from {
+      transform: translate3d(-6%, -4%, 0) rotate(0deg) scale(1);
+    }
+    to {
+      transform: translate3d(7%, 5%, 0) rotate(16deg) scale(1.16);
+    }
+  }
+
+  @keyframes vt-drift-b {
+    from {
+      transform: translate3d(5%, -6%, 0) rotate(0deg) scale(1.1);
+    }
+    to {
+      transform: translate3d(-7%, 4%, 0) rotate(-14deg) scale(0.96);
+    }
+  }
+
+  @keyframes vt-drift-c {
+    from {
+      transform: translate3d(-4%, 6%, 0) rotate(0deg) scale(0.98);
+    }
+    to {
+      transform: translate3d(5%, -6%, 0) rotate(12deg) scale(1.12);
+    }
+  }
+
+  /* collapse: the one sanctioned height animation (content reveal) */
+  @keyframes vt-collapse-down {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: var(--vt-collapse-h, auto);
+      opacity: 1;
+    }
+  }
+
+  @keyframes vt-collapse-up {
+    from {
+      height: var(--vt-collapse-h, auto);
+      opacity: 1;
+    }
+    to {
+      height: 0;
+      opacity: 0;
+    }
+  }
+
+  /* ---- overlay animation hooks (Radix data-state) ---- */
+
+  .vt-pop[data-state="open"] {
+    animation: vt-pop-in var(--dur-3) var(--ease-pop);
+  }
+
+  .vt-pop[data-state="closed"] {
+    animation: vt-pop-out 180ms var(--ease-in-soft);
+  }
+
+  .vt-scrim[data-state="open"] {
+    animation: vt-fade-in var(--dur-3) var(--ease-out-soft);
+  }
+
+  .vt-scrim[data-state="closed"] {
+    animation: vt-fade-out 180ms var(--ease-in-soft);
+  }
+
+  /* ------------------------------------------------------------------ */
+  /*  Aurora field                                                       */
+  /* ------------------------------------------------------------------ */
+
+  .vt-aurora {
+    overflow: clip;
+    pointer-events: none;
+    isolation: isolate;
+  }
+
+  /* zero specificity: position utilities (fixed, sticky) win when supplied */
+  :where(.vt-aurora) {
+    position: absolute;
+    inset: 0;
+  }
+
+  .vt-aurora > .vt-aurora-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    will-change: transform;
+    opacity: var(--aurora-alpha);
+  }
+
+  .vt-aurora > .vt-aurora-blob:nth-child(1) {
+    width: 72vmax;
+    height: 56vmax;
+    left: -18vmax;
+    top: -22vmax;
+    background: radial-gradient(closest-side, var(--aurora-1), transparent 70%);
+    animation: vt-drift-a 47s var(--ease-out-soft) infinite alternate;
+  }
+
+  .vt-aurora > .vt-aurora-blob:nth-child(2) {
+    width: 64vmax;
+    height: 52vmax;
+    right: -20vmax;
+    top: -10vmax;
+    background: radial-gradient(closest-side, var(--aurora-2), transparent 70%);
+    animation: vt-drift-b 61s var(--ease-out-soft) infinite alternate;
+  }
+
+  .vt-aurora > .vt-aurora-blob:nth-child(3) {
+    width: 70vmax;
+    height: 58vmax;
+    left: 8vmax;
+    bottom: -30vmax;
+    background: radial-gradient(closest-side, var(--aurora-3), transparent 70%);
+    animation: vt-drift-c 83s var(--ease-out-soft) infinite alternate;
+  }
+
+  .vt-aurora > .vt-aurora-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-repeat: repeat;
+    background-size: 192px 192px;
+  }
+
+  /* ------------------------------------------------------------------ */
+  /*  Reduced motion                                                     */
+  /* ------------------------------------------------------------------ */
+
+  @media (prefers-reduced-motion: reduce) {
+    .vt-aurora > .vt-aurora-blob {
+      animation: none;
+    }
+
+    .vt-pop[data-state="open"],
+    .vt-scrim[data-state="open"] {
+      animation: vt-fade-in var(--dur-2) var(--ease-out-soft);
+    }
+
+    .vt-pop[data-state="closed"],
+    .vt-scrim[data-state="closed"] {
+      animation: vt-fade-out 140ms var(--ease-in-soft);
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/*  Focus ring — accent outline + opposing-luminance halo              */
+/* ------------------------------------------------------------------ */
+
+@utility vt-ring {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+
+  &:focus-visible {
+    outline-color: var(--ring);
+    box-shadow: 0 0 0 5px var(--ring-halo);
+  }
+}
+
+@utility vt-ring-inset {
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+
+  &:focus-visible {
+    outline-color: var(--ring);
+  }
+}
