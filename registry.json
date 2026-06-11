@@ -21,7 +21,7 @@
       "name": "glass",
       "type": "registry:ui",
       "title": "Glass",
-      "description": "The material primitive: refractive glass surfaces with engine detection, shared filter definitions, and pointer sheen.",
+      "description": "The material primitive: refractive glass surfaces with engine detection, geometry-exact displacement baking, shared filter definitions, and pointer sheen.",
       "dependencies": [
         "radix-ui"
       ],
@@ -55,6 +55,14 @@
           "type": "registry:lib"
         },
         {
+          "path": "registry/vitrum/lib/glass-optics.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/vitrum/lib/optics-manager.ts",
+          "type": "registry:lib"
+        },
+        {
           "path": "registry/vitrum/hooks/use-sheen.ts",
           "type": "registry:hook"
         },
@@ -80,6 +88,23 @@
           "type": "registry:ui"
         }
       ]
+    },
+    {
+      "name": "glass-scene",
+      "type": "registry:ui",
+      "title": "Glass Scene",
+      "description": "Scene refraction: bend any content you own, in every modern browser. A backdrop, any number of lenses, one baked map.",
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/glass-scene.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "docs": "The scene activates in the frost engine, where backdrop displacement is unavailable; the refract engine already bends through the surfaces themselves."
     },
     {
       "name": "button",

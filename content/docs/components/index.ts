@@ -1,6 +1,7 @@
 import type { ComponentDoc } from "@/lib/docs/types";
 
 import { glassDoc } from "@/content/docs/components/glass";
+import { glassSceneDoc } from "@/content/docs/components/glass-scene";
 import { auroraFieldDoc } from "@/content/docs/components/aurora-field";
 import { lensDoc } from "@/content/docs/components/lens";
 import { buttonDoc } from "@/content/docs/components/button";
@@ -33,6 +34,7 @@ import { dockDoc } from "@/content/docs/components/dock";
 
 export const docsMap: Record<string, ComponentDoc> = {
   [glassDoc.slug]: glassDoc,
+  [glassSceneDoc.slug]: glassSceneDoc,
   [auroraFieldDoc.slug]: auroraFieldDoc,
   [lensDoc.slug]: lensDoc,
   [buttonDoc.slug]: buttonDoc,

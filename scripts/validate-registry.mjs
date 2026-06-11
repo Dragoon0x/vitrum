@@ -196,6 +196,7 @@ if (!skipBuildCheck) {
 
 const DENYLIST = [
   "apple",
+  "aave",
   "cupertino",
   "visionos",
   "vision os",

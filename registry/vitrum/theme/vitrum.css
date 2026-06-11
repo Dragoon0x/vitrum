@@ -375,6 +375,11 @@
     background: var(--surface);
   }
 
+  /* scene refraction is decorative: solid engine strips it */
+  [data-glass-engine="solid"] [data-vt-scene-backdrop] {
+    filter: none !important;
+  }
+
   /* ---- laminate guard: nested glass keeps tint + ring, drops backdrop ---- */
 
   [data-glass] [data-glass]::before {

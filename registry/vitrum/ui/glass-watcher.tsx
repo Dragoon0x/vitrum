@@ -6,11 +6,16 @@ import {
   getStoredGlassEngine,
   setGlassEngine,
 } from "@/registry/vitrum/lib/glass-engine";
+import {
+  startOpticsManager,
+  stopOpticsManager,
+} from "@/registry/vitrum/lib/optics-manager";
 
 /**
- * Keeps the engine attribute live after first paint: if the user's
- * reduced-transparency preference flips and no explicit override is
- * stored, the engine re-resolves.
+ * Keeps the engine attribute live after first paint, and runs the
+ * exact-optics manager: while the refract engine is active, every glass
+ * surface gets a displacement filter baked for its precise geometry
+ * instead of the shipped preset.
  */
 export function GlassWatcher() {
   React.useEffect(() => {
@@ -19,7 +24,13 @@ export function GlassWatcher() {
       if (!getStoredGlassEngine()) setGlassEngine(null);
     };
     query.addEventListener("change", onChange);
-    return () => query.removeEventListener("change", onChange);
+
+    startOpticsManager();
+
+    return () => {
+      query.removeEventListener("change", onChange);
+      stopOpticsManager();
+    };
   }, []);
 
   return null;

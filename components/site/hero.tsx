@@ -7,6 +7,11 @@ import { ArrowRightIcon } from "lucide-react";
 import { installCommand } from "@/lib/site";
 import { useGlassEngine } from "@/registry/vitrum/hooks/use-glass-engine";
 import { Glass } from "@/registry/vitrum/ui/glass";
+import {
+  GlassScene,
+  GlassSceneBackdrop,
+  GlassSceneLens,
+} from "@/registry/vitrum/ui/glass-scene";
 
 import { CopyButton } from "@/components/docs/copy-button";
 
@@ -45,25 +50,34 @@ export function Hero() {
       className="relative flex min-h-svh flex-col items-center justify-center overflow-clip px-6"
     >
       <div className="relative flex w-full max-w-5xl flex-col items-center">
-        {/* headline block — the slab lives here and refracts only the type */}
-        <div className="relative">
-          <h1
-            className="text-center font-display text-[clamp(4rem,13vw,11rem)] leading-[0.92] font-bold tracking-tight text-balance motion-safe:[transform:translate(calc(var(--hx,0)*-8px),calc(var(--hy,0)*-6px))]"
-            style={{ transitionDuration: "0s" }}
-          >
-            Designed
-            <br />
-            in&nbsp;glass.
-          </h1>
+        {/* headline block — the slab lives here and refracts only the type.
+            The scene bridge bends the type in engines without backdrop
+            displacement; in the refract engine it stays inert. */}
+        <GlassScene className="relative">
+          <GlassSceneBackdrop>
+            <h1
+              className="text-center font-display text-[clamp(4rem,13vw,11rem)] leading-[0.92] font-bold tracking-tight text-balance motion-safe:[transform:translate(calc(var(--hx,0)*-8px),calc(var(--hy,0)*-6px))]"
+              style={{ transitionDuration: "0s" }}
+            >
+              Designed
+              <br />
+              in&nbsp;glass.
+            </h1>
+          </GlassSceneBackdrop>
 
-          <div className="pointer-events-none absolute top-[62%] left-1/2 hidden -translate-x-1/2 -translate-y-1/2 motion-safe:animate-[vt-float_9s_ease-in-out_infinite_alternate] sm:block">
+          <GlassSceneLens
+            depth={26}
+            bevel={36}
+            radius={36}
+            className="pointer-events-none absolute top-[62%] left-1/2 hidden -translate-x-1/2 -translate-y-1/2 motion-safe:animate-[vt-float_9s_ease-in-out_infinite_alternate] sm:block"
+          >
             <Glass
               material="slab"
-              className="h-40 w-[32rem] max-w-[78vw] shadow-glass-lg motion-safe:[transform:translate(calc(var(--hx,0)*14px),calc(var(--hy,0)*10px))_rotate(-4deg)]"
+              className="h-40 w-[32rem] max-w-[78vw] shadow-glass-lg [--glass-blur:10px] motion-safe:[transform:translate(calc(var(--hx,0)*14px),calc(var(--hy,0)*10px))_rotate(-4deg)]"
               style={{ "--glass-radius": "2.25rem" } as React.CSSProperties}
             />
-          </div>
-        </div>
+          </GlassSceneLens>
+        </GlassScene>
 
         <p className="mt-8 max-w-xl text-center text-base leading-relaxed text-pretty text-muted-foreground sm:mt-10">
           Thirty React components cast in a refractive material — light

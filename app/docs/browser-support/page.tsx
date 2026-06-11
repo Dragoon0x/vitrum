@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 };
 
 const MATRIX = [
-  ["Chrome, Edge, Arc, Brave (Chromium)", "refract", "Full displacement refraction, prismatic edges, lens magnification"],
-  ["Safari 16.4+", "frost", "Tuned blur + saturation, specular ring, sheen — no displacement"],
-  ["Firefox 128+", "frost", "Same frost rendering as Safari"],
+  ["Chrome, Edge, Arc, Brave (Chromium)", "refract", "Backdrop displacement baked per geometry, prismatic edges, lens magnification"],
+  ["Safari 16.4+", "frost", "Tuned blur + saturation, specular ring, sheen; scenes still bend their own content"],
+  ["Firefox 128+", "frost", "Same frost rendering — and the same scene bending"],
   ["Any browser, reduced transparency on", "solid", "Opaque surfaces, structure and focus intact"],
   ["JavaScript disabled", "frost", "The no-JS default is the frost engine"],
 ] as const;
@@ -69,6 +69,23 @@ export default function BrowserSupportPage() {
           screenshots in this site&apos;s own test suite are taken in it
           on purpose.
         </Callout>
+      </section>
+
+      <section className="flex flex-col gap-4">
+        <h2 className="font-display text-xl font-semibold tracking-tight">
+          Scene refraction works everywhere
+        </h2>
+        <p className="max-w-2xl text-sm leading-relaxed text-muted-foreground">
+          Backdrop displacement is one compositor&apos;s feature, but a
+          plain SVG filter applied to ordinary content is not. The Glass
+          Scene component exploits that: it bakes one displacement map for
+          a patch of content you own — neutral everywhere, bending under
+          each registered lens — and applies it with a regular filter.
+          That bends real pixels in Safari and Firefox too. This site&apos;s
+          hero and the Material Studio stage both ride it: switch to{" "}
+          <code className="font-mono">?glass=frost</code> and the headline
+          still bends.
+        </p>
       </section>
 
       <section className="flex flex-col gap-4">

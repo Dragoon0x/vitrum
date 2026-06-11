@@ -34,6 +34,7 @@ export const COMPONENT_GROUPS: NavGroup[] = [
     title: "Foundation",
     links: [
       { title: "Glass", href: "/docs/components/glass" },
+      { title: "Glass Scene", href: "/docs/components/glass-scene" },
       { title: "Aurora Field", href: "/docs/components/aurora-field" },
       { title: "Lens", href: "/docs/components/lens" },
     ],
