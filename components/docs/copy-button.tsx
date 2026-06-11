@@ -24,7 +24,7 @@ export function CopyButton({
       type="button"
       aria-label={copied ? "Copied" : "Copy to clipboard"}
       className={cn(
-        "vt-ring inline-flex size-7 shrink-0 items-center justify-center rounded-control text-muted-foreground transition-colors duration-200 outline-none hover:bg-accent/70 hover:text-foreground",
+        "vt-ring inline-flex size-7 shrink-0 items-center justify-center rounded-control text-muted-foreground transition-colors duration-200 hover:bg-accent/70 hover:text-foreground",
         className,
       )}
       onClick={async () => {

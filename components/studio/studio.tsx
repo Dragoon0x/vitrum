@@ -211,7 +211,7 @@ export function Studio() {
                 aria-label={tint.label}
                 title={tint.label}
                 className={cn(
-                  "vt-ring size-8 rounded-full border border-border outline-none transition-transform",
+                  "vt-ring size-8 rounded-full border border-border transition-transform",
                   state.tint === tint.id && "scale-110 ring-2 ring-ring ring-offset-2 ring-offset-background",
                 )}
                 style={{ background: tint.value }}
@@ -229,7 +229,7 @@ export function Studio() {
                 type="button"
                 aria-pressed={state.refraction === refraction.id}
                 className={cn(
-                  "vt-ring rounded-control px-2.5 py-1.5 text-left text-xs outline-none transition-colors",
+                  "vt-ring rounded-control px-2.5 py-1.5 text-left text-xs transition-colors",
                   state.refraction === refraction.id
                     ? "bg-primary/15 font-medium text-foreground"
                     : "text-muted-foreground hover:bg-accent/50 hover:text-foreground",
@@ -285,7 +285,7 @@ export function Studio() {
           />
           <button
             type="button"
-            className="vt-ring w-fit rounded-control text-xs text-primary outline-none hover:underline"
+            className="vt-ring w-fit rounded-control text-xs text-glint hover:underline"
             onClick={() => setGlassEngine(null)}
           >
             Reset to detection
@@ -330,7 +330,7 @@ export function Studio() {
               type="button"
               aria-pressed={scene === option.id}
               className={cn(
-                "vt-ring rounded-pill px-3 py-1 text-xs outline-none transition-colors",
+                "vt-ring rounded-pill px-3 py-1 text-xs transition-colors",
                 scene === option.id
                   ? "font-medium text-foreground"
                   : "text-muted-foreground hover:text-foreground",

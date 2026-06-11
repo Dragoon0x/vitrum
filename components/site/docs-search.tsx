@@ -39,7 +39,7 @@ export function DocsSearch() {
       <button
         type="button"
         aria-label="Search documentation"
-        className="vt-ring inline-flex h-9 items-center gap-2 rounded-pill px-3 text-sm text-muted-foreground transition-colors duration-200 outline-none hover:bg-accent/60 hover:text-foreground"
+        className="vt-ring inline-flex h-9 items-center gap-2 rounded-pill px-3 text-sm text-muted-foreground transition-colors duration-200 hover:bg-accent/60 hover:text-foreground"
         onClick={() => setOpen(true)}
       >
         <SearchIcon className="size-4" />

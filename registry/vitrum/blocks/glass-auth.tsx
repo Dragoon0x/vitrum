@@ -51,7 +51,7 @@ export function GlassAuth() {
               </label>
               <a
                 href="#"
-                className="vt-ring rounded-control text-xs text-primary outline-none hover:underline"
+                className="vt-ring rounded-control text-xs text-glint hover:underline"
               >
                 Forgot?
               </a>
@@ -80,7 +80,7 @@ export function GlassAuth() {
           No account?{" "}
           <a
             href="#"
-            className="vt-ring rounded-control text-primary outline-none hover:underline"
+            className="vt-ring rounded-control text-glint hover:underline"
           >
             Request access
           </a>

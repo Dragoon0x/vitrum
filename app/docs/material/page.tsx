@@ -63,7 +63,7 @@ export default function MaterialPage() {
             <tbody>
               {ENGINES.map(([name, treatment, when]) => (
                 <tr key={name} className="border-b border-border align-top last:border-b-0">
-                  <td className="px-4 py-2.5 font-mono text-[0.8125rem] text-primary">{name}</td>
+                  <td className="px-4 py-2.5 font-mono text-[0.8125rem] text-glint">{name}</td>
                   <td className="px-4 py-2.5 text-muted-foreground">{treatment}</td>
                   <td className="px-4 py-2.5 text-muted-foreground">{when}</td>
                 </tr>
@@ -97,7 +97,7 @@ export default function MaterialPage() {
             <tbody>
               {MATERIALS.map(([name, blur, used]) => (
                 <tr key={name} className="border-b border-border align-top last:border-b-0">
-                  <td className="px-4 py-2.5 font-mono text-[0.8125rem] text-primary">{name}</td>
+                  <td className="px-4 py-2.5 font-mono text-[0.8125rem] text-glint">{name}</td>
                   <td className="px-4 py-2.5 font-mono text-[0.8125rem] text-muted-foreground">{blur}</td>
                   <td className="px-4 py-2.5 text-muted-foreground">{used}</td>
                 </tr>
@@ -135,7 +135,7 @@ export default function MaterialPage() {
             <tbody>
               {TOKENS.map(([token, controls]) => (
                 <tr key={token} className="border-b border-border align-top last:border-b-0">
-                  <td className="px-4 py-2.5 font-mono text-[0.8125rem] whitespace-nowrap text-primary">{token}</td>
+                  <td className="px-4 py-2.5 font-mono text-[0.8125rem] whitespace-nowrap text-glint">{token}</td>
                   <td className="px-4 py-2.5 text-muted-foreground">{controls}</td>
                 </tr>
               ))}

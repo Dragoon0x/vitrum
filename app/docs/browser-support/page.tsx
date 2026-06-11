@@ -38,7 +38,7 @@ export default function BrowserSupportPage() {
               {MATRIX.map(([env, engine, result]) => (
                 <tr key={env} className="border-b border-border align-top last:border-b-0">
                   <td className="px-4 py-2.5 text-foreground">{env}</td>
-                  <td className="px-4 py-2.5 font-mono text-[0.8125rem] text-primary">{engine}</td>
+                  <td className="px-4 py-2.5 font-mono text-[0.8125rem] text-glint">{engine}</td>
                   <td className="px-4 py-2.5 text-muted-foreground">{result}</td>
                 </tr>
               ))}

@@ -17,7 +17,7 @@ function Switch({
     <SwitchPrimitive.Root
       data-slot="switch"
       className={cn(
-        "vt-well vt-ring peer inline-flex h-6 w-10 shrink-0 items-center rounded-pill outline-none transition-[background-color,box-shadow] duration-200",
+        "vt-well vt-ring peer inline-flex h-6 w-10 shrink-0 items-center rounded-pill transition-[background-color,box-shadow] duration-200",
         "data-[state=checked]:bg-primary data-[state=checked]:shadow-[inset_0_1px_2px_oklch(0_0_0/0.2)]",
         "disabled:cursor-not-allowed disabled:opacity-50",
         className,

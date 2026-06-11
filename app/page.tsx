@@ -25,7 +25,7 @@ function SectionHeading({
 }) {
   return (
     <header className="mb-10 flex max-w-2xl flex-col gap-3">
-      <span className="font-mono text-xs tracking-widest text-primary uppercase">
+      <span className="font-mono text-xs tracking-widest text-glint uppercase">
         {eyebrow}
       </span>
       <h2 className="font-display text-3xl font-bold tracking-tight text-balance sm:text-4xl">
@@ -137,7 +137,7 @@ export default function Home() {
           <div className="mt-8 flex justify-center">
             <Link
               href="/blocks"
-              className="vt-ring inline-flex items-center gap-2 rounded-pill px-5 py-2.5 text-sm font-medium text-primary outline-none transition-colors hover:bg-accent/60"
+              className="vt-ring inline-flex items-center gap-2 rounded-pill px-5 py-2.5 text-sm font-medium text-glint transition-colors hover:bg-accent/60"
             >
               All blocks <ArrowRightIcon className="size-4" />
             </Link>
@@ -172,13 +172,13 @@ export default function Home() {
             <div className="flex flex-wrap gap-3">
               <Link
                 href="/docs/installation"
-                className="vt-ring inline-flex items-center gap-2 rounded-pill bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground outline-none transition-transform hover:scale-[1.02]"
+                className="vt-ring inline-flex items-center gap-2 rounded-pill bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground transition-transform hover:scale-[1.02]"
               >
                 Installation guide <ArrowRightIcon className="size-4" />
               </Link>
               <Link
                 href="/docs/mcp"
-                className="vt-ring inline-flex items-center gap-2 rounded-pill px-5 py-2.5 text-sm font-medium text-foreground outline-none transition-colors hover:bg-accent/60"
+                className="vt-ring inline-flex items-center gap-2 rounded-pill px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-accent/60"
               >
                 <SparklesIcon className="size-4" /> Use with AI
               </Link>

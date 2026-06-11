@@ -63,7 +63,7 @@ export function StudioTeaser() {
         </div>
         <Link
           href="/studio"
-          className="vt-ring mt-2 inline-flex w-fit items-center gap-2 rounded-pill px-5 py-2.5 text-sm font-medium text-primary outline-none transition-colors hover:bg-accent/60"
+          className="vt-ring mt-2 inline-flex w-fit items-center gap-2 rounded-pill px-5 py-2.5 text-sm font-medium text-glint transition-colors hover:bg-accent/60"
         >
           Open the full studio <ArrowRightIcon className="size-4" />
         </Link>

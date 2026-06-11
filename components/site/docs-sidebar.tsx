@@ -30,7 +30,7 @@ export function DocsSidebar() {
                   ? { "data-glass": "", "data-material": "film" }
                   : {})}
                 className={cn(
-                  "vt-ring rounded-pill px-3 py-1.5 outline-none transition-colors duration-150",
+                  "vt-ring rounded-pill px-3 py-1.5 transition-colors duration-150",
                   active
                     ? "font-medium text-foreground shadow-glass-sm"
                     : "text-muted-foreground hover:text-foreground",

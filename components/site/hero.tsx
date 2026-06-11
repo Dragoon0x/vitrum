@@ -74,13 +74,13 @@ export function Hero() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <Link
             href="/docs"
-            className="vt-ring inline-flex items-center gap-2 rounded-pill bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-glow-accent outline-none transition-transform hover:scale-[1.03]"
+            className="vt-ring inline-flex items-center gap-2 rounded-pill bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-glow-accent transition-transform hover:scale-[1.03]"
           >
             Browse the components <ArrowRightIcon className="size-4" />
           </Link>
           <Link
             href="/studio"
-            className="vt-ring rounded-pill px-6 py-3 text-sm font-medium text-foreground outline-none transition-colors hover:bg-accent/60"
+            className="vt-ring rounded-pill px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent/60"
           >
             Open the studio
           </Link>

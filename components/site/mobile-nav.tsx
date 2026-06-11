@@ -25,7 +25,7 @@ export function MobileNav() {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger
         aria-label="Open navigation"
-        className="vt-ring inline-flex size-9 items-center justify-center rounded-pill text-muted-foreground transition-colors duration-200 outline-none hover:bg-accent/60 hover:text-foreground md:hidden"
+        className="vt-ring inline-flex size-9 items-center justify-center rounded-pill text-muted-foreground transition-colors duration-200 hover:bg-accent/60 hover:text-foreground md:hidden"
       >
         <MenuIcon className="size-4.5" />
       </SheetTrigger>
@@ -44,7 +44,7 @@ export function MobileNav() {
                 href={link.href}
                 onClick={() => setOpen(false)}
                 className={cn(
-                  "vt-ring rounded-control px-2.5 py-1.5 text-sm font-medium outline-none transition-colors",
+                  "vt-ring rounded-control px-2.5 py-1.5 text-sm font-medium transition-colors",
                   pathname === link.href
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground",
@@ -65,7 +65,7 @@ export function MobileNav() {
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className={cn(
-                    "vt-ring rounded-control px-2.5 py-1.5 text-sm outline-none transition-colors",
+                    "vt-ring rounded-control px-2.5 py-1.5 text-sm transition-colors",
                     pathname === link.href
                       ? "font-medium text-foreground"
                       : "text-muted-foreground hover:text-foreground",

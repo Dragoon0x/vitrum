@@ -98,7 +98,7 @@ function NavbarLink({
       data-slot="navbar-link"
       data-active={active || undefined}
       className={cn(
-        "vt-ring rounded-pill px-3.5 py-1.5 text-sm text-muted-foreground transition-colors duration-200 outline-none",
+        "vt-ring rounded-pill px-3.5 py-1.5 text-sm text-muted-foreground transition-colors duration-200",
         "hover:text-foreground data-[active]:font-medium data-[active]:text-foreground",
         className,
       )}

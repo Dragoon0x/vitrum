@@ -18,7 +18,7 @@ export function ThemeToggle() {
     <button
       type="button"
       aria-label="Toggle color scheme"
-      className="vt-ring inline-flex size-9 items-center justify-center rounded-pill text-muted-foreground transition-colors duration-200 outline-none hover:bg-accent/60 hover:text-foreground"
+      className="vt-ring inline-flex size-9 items-center justify-center rounded-pill text-muted-foreground transition-colors duration-200 hover:bg-accent/60 hover:text-foreground"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
     >
       {mounted && resolvedTheme === "light" ? (

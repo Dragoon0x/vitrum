@@ -11,8 +11,13 @@ function Slider({
   value,
   min = 0,
   max = 100,
+  "aria-label": ariaLabel,
+  thumbLabels,
   ...props
-}: React.ComponentProps<typeof SliderPrimitive.Root>) {
+}: React.ComponentProps<typeof SliderPrimitive.Root> & {
+  /** Accessible names for each thumb (falls back to aria-label). */
+  thumbLabels?: string[];
+}) {
   const values = React.useMemo(
     () =>
       Array.isArray(value)
@@ -26,6 +31,7 @@ function Slider({
   return (
     <SliderPrimitive.Root
       data-slot="slider"
+      aria-label={ariaLabel}
       defaultValue={defaultValue}
       value={value}
       min={min}
@@ -54,11 +60,17 @@ function Slider({
       {values.map((_, index) => (
         <SliderPrimitive.Thumb
           key={index}
+          aria-label={
+            thumbLabels?.[index] ??
+            (values.length > 1 && ariaLabel
+              ? `${ariaLabel} ${index + 1}`
+              : ariaLabel)
+          }
           data-slot="slider-thumb"
           data-glass=""
           data-material="film"
           className={cn(
-            "vt-refract-circle-2 vt-ring block size-5 shrink-0 rounded-full shadow-glass-sm outline-none transition-[box-shadow] duration-200",
+            "vt-refract-circle-2 vt-ring block size-5 shrink-0 rounded-full shadow-glass-sm transition-[box-shadow] duration-200",
             "hover:shadow-glass-md disabled:pointer-events-none",
             "[--glass-tint-a:0.65] [--glass-tint-c:oklch(1_0_0)]",
           )}

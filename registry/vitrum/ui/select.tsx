@@ -35,7 +35,7 @@ function SelectTrigger({
       data-slot="select-trigger"
       data-size={size}
       className={cn(
-        "vt-well vt-ring flex w-fit items-center justify-between gap-2 rounded-field px-3.5 py-2 text-sm whitespace-nowrap outline-none transition-[box-shadow,background-color] duration-200 data-[size=default]:h-10 data-[size=sm]:h-8",
+        "vt-well vt-ring flex w-fit items-center justify-between gap-2 rounded-field px-3.5 py-2 text-sm whitespace-nowrap transition-[box-shadow,background-color] duration-200 data-[size=default]:h-10 data-[size=sm]:h-8",
         "data-[placeholder]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         "disabled:cursor-not-allowed disabled:opacity-50",
         "aria-invalid:outline-2 aria-invalid:outline-destructive/70",

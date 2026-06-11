@@ -53,7 +53,7 @@ export default function BlocksPage() {
                   </div>
                   <Link
                     href={`/blocks/${block.slug}` as Route}
-                    className="vt-ring mt-0.5 inline-flex shrink-0 items-center gap-1.5 rounded-pill px-3.5 py-1.5 text-sm font-medium text-primary outline-none transition-colors hover:bg-accent/60"
+                    className="vt-ring mt-0.5 inline-flex shrink-0 items-center gap-1.5 rounded-pill px-3.5 py-1.5 text-sm font-medium text-glint transition-colors hover:bg-accent/60"
                   >
                     Open <ArrowRightIcon className="size-3.5" />
                   </Link>

@@ -26,7 +26,7 @@ export function SiteHeader() {
         <Link
           href="/"
           aria-label="Vitrum home"
-          className="vt-ring rounded-pill outline-none"
+          className="vt-ring rounded-pill"
         >
           <Logo />
         </Link>

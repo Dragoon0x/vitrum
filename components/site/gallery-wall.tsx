@@ -148,14 +148,14 @@ export function GalleryWall() {
           key={cell.slug}
           href={`/docs/components/${cell.slug}` as Route}
           className={
-            "vt-ring group relative flex min-h-36 flex-col items-center justify-center gap-3 rounded-pane border border-border p-5 outline-none transition-colors hover:border-primary/40" +
+            "vt-ring group relative flex min-h-36 flex-col items-center justify-center gap-3 rounded-pane border border-border p-5 transition-colors hover:border-primary/40" +
             (cell.span ? " col-span-2" : "")
           }
         >
           <div className="pointer-events-none flex flex-1 items-center justify-center">
             <div className="pointer-events-auto">{cell.render}</div>
           </div>
-          <span className="font-mono text-[0.6875rem] text-muted-foreground transition-colors group-hover:text-primary">
+          <span className="font-mono text-[0.6875rem] text-muted-foreground transition-colors group-hover:text-glint">
             {cell.title}
           </span>
         </Link>

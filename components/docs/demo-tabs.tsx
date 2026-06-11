@@ -35,7 +35,7 @@ export function DemoTabs({
             aria-selected={tab === value}
             data-state={tab === value ? "active" : "inactive"}
             className={cn(
-              "vt-ring-inset rounded-pill px-3.5 py-1 text-xs font-medium capitalize outline-none transition-colors duration-200",
+              "vt-ring-inset rounded-pill px-3.5 py-1 text-xs font-medium capitalize transition-colors duration-200",
               tab === value
                 ? "bg-surface text-foreground shadow-glass-sm"
                 : "text-muted-foreground hover:text-foreground",

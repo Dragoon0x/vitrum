@@ -42,7 +42,7 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "vt-ring flex flex-1 items-start justify-between gap-4 rounded-control py-4 text-left text-sm font-medium outline-none transition-colors hover:text-primary",
+          "vt-ring flex flex-1 items-start justify-between gap-4 rounded-control py-4 text-left text-sm font-medium transition-colors hover:text-glint",
           "disabled:pointer-events-none disabled:opacity-50",
           "[&[data-state=open]>svg]:rotate-180",
           className,

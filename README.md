@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Vitrum
 
-## Getting Started
+**Designed in glass.** Thirty React components cast in a refractive material — light bends at every edge, frost where the compositor says no, and solid surfaces the moment someone asks for them.
 
-First, run the development server:
+Vitrum is a component registry, not a package: components land in your project as source files you own, with the material system traveling alongside the first one you install.
+
+## Quick start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# in a Tailwind v4 project initialized with the shadcn CLI
+npx shadcn@latest add https://vitrum.dev/r/button.json
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then import the stylesheet once in your global CSS (after Tailwind):
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```css
+@import "tailwindcss";
+@import "../vitrum.css";
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+And enable refraction by mounting the root once at the top of `<body>`:
 
-## Learn More
+```tsx
+import { GlassRoot } from "@/components/ui/glass-root";
 
-To learn more about Next.js, take a look at the following resources:
+<body>
+  <GlassRoot />
+  {children}
+</body>
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Prefer a namespace? Add to `components.json`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```json
+{ "registries": { "@vitrum": "https://vitrum.dev/r/{name}.json" } }
+```
 
-## Deploy on Vercel
+then `shadcn add @vitrum/dialog` — works for you and for AI editors via `shadcn mcp`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## The material
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Every surface renders through one of three engines, resolved before first paint and carried as an attribute on `<html>`:
+
+| Engine | What happens | Where |
+| --- | --- | --- |
+| `refract` | SVG displacement bends the backdrop at every rim, in one compositor pass | Chromium-family browsers |
+| `frost` | Tuned blur + saturation with the same specular details | Safari, Firefox, no-JS |
+| `solid` | Opaque surfaces, structure and focus intact | `prefers-reduced-transparency` |
+
+Force an engine with `?glass=frost|solid|refract`; reset with `?glass=auto`.
+
+Four material weights — `film`, `pane`, `slab`, `veil` — share the optical system. Veil (dialogs, sheets, menus) never refracts: overlay-scale displacement is where frame budgets die. Glass nested in glass automatically laminates to a single backdrop pass.
+
+## Theming
+
+Every knob is a custom property, overridable per instance:
+
+| Token | Controls |
+| --- | --- |
+| `--glass-blur` | frost radius |
+| `--glass-tint-c` / `--glass-tint-a` | tint color and strength |
+| `--glass-refract` | refraction preset (`url(#…)`) |
+| `--glass-radius` | corner radius |
+| `--glass-edge` / `--glass-sheen` | specular ring and pointer light |
+
+Tune them live in the [Material Studio](https://vitrum.dev/studio) and export CSS or component props.
+
+## Accessibility
+
+Two-layer focus indicators readable over any backdrop; contrast floors per material; `prefers-reduced-motion` pauses ambient drift and collapses springs to fades; `prefers-reduced-transparency` switches the whole system to solid surfaces; behavior comes from hardened headless primitives — focus trapping, roving tab stops, typeahead — never hand-rolled.
+
+## Development
+
+```bash
+pnpm install
+pnpm dev        # site + registry on :3000
+pnpm verify     # typecheck + lint + registry build + validation + production build
+```
+
+The registry serves from `public/r` (built by `shadcn build`) and validates against nine gates — manifest shape, file integrity, export naming, dependency resolution, orphan detection, brand hygiene, and animation safety — before every build.
+
+Deploying? Set `NEXT_PUBLIC_SITE_URL` to your origin; install commands, the sitemap, and `llms.txt` follow it.
+
+## License
+
+MIT — see [LICENSE](./LICENSE).

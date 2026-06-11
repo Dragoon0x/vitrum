@@ -52,7 +52,7 @@ export default async function BlockPage({
           <Link
             href={`/blocks/${block.slug}/preview` as Route}
             target="_blank"
-            className="vt-ring inline-flex w-fit items-center gap-1.5 rounded-pill px-3.5 py-1.5 text-sm text-primary outline-none transition-colors hover:bg-accent/60"
+            className="vt-ring inline-flex w-fit items-center gap-1.5 rounded-pill px-3.5 py-1.5 text-sm text-glint transition-colors hover:bg-accent/60"
           >
             Open standalone preview <ExternalLinkIcon className="size-3.5" />
           </Link>

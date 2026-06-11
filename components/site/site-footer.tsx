@@ -20,7 +20,7 @@ export function SiteFooter() {
             <Link
               key={link.href}
               href={link.href}
-              className="vt-ring rounded-control text-sm text-muted-foreground outline-none transition-colors hover:text-foreground"
+              className="vt-ring rounded-control text-sm text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.title}
             </Link>

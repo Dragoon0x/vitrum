@@ -112,7 +112,7 @@ function DockItem({
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
       className={cn(
-        "vt-refract-circle-2 vt-ring relative grid shrink-0 place-items-center rounded-[32%] text-foreground shadow-glass-sm outline-none",
+        "vt-refract-circle-2 vt-ring relative grid shrink-0 place-items-center rounded-[32%] text-foreground shadow-glass-sm",
         "[&_svg]:size-[52%] [&_svg]:shrink-0",
         className,
       )}

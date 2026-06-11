@@ -84,7 +84,7 @@ export function InstallTabsClient({
               type="button"
               aria-selected={mode === value}
               className={cn(
-                "vt-ring-inset rounded-pill px-3.5 py-1 text-xs font-medium outline-none transition-colors duration-200",
+                "vt-ring-inset rounded-pill px-3.5 py-1 text-xs font-medium transition-colors duration-200",
                 mode === value
                   ? "bg-surface text-foreground shadow-glass-sm"
                   : "text-muted-foreground hover:text-foreground",
@@ -109,7 +109,7 @@ export function InstallTabsClient({
                 type="button"
                 aria-selected={pm === value}
                 className={cn(
-                  "vt-ring rounded-pill px-2.5 py-1 font-mono text-xs outline-none transition-colors duration-200",
+                  "vt-ring rounded-pill px-2.5 py-1 font-mono text-xs transition-colors duration-200",
                   pm === value
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground",

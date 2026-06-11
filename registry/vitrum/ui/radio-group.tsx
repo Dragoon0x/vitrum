@@ -26,7 +26,7 @@ function RadioGroupItem({
     <RadioGroupPrimitive.Item
       data-slot="radio-group-item"
       className={cn(
-        "vt-well vt-ring flex aspect-square size-5 shrink-0 items-center justify-center rounded-full outline-none transition-[background-color,box-shadow] duration-200",
+        "vt-well vt-ring flex aspect-square size-5 shrink-0 items-center justify-center rounded-full transition-[background-color,box-shadow] duration-200",
         "data-[state=checked]:bg-primary data-[state=checked]:shadow-[inset_0_1px_0_oklch(1_0_0/0.35),0_2px_8px_-2px_var(--primary)]",
         "disabled:cursor-not-allowed disabled:opacity-50",
         "aria-invalid:outline-2 aria-invalid:outline-destructive/70",
