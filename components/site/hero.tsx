@@ -110,7 +110,7 @@ export function Hero() {
           <CopyButton value={command} />
         </Glass>
 
-        <p className="mt-6 font-mono text-[0.6875rem] tracking-wide text-muted-foreground/70">
+        <p className="mt-6 font-mono text-[0.6875rem] tracking-wide text-muted-foreground">
           {engine} engine active
         </p>
       </div>
