@@ -15,24 +15,53 @@
           "target": "~/vitrum.css"
         }
       ],
-      "docs": "Import the stylesheet once in your global CSS (after `@import \"tailwindcss\"`): `@import \"../vitrum.css\";` — adjust the relative path to where your globals live."
+      "docs": "Import the stylesheet once in your global CSS (after `@import \"tailwindcss\"`): `@import \"../vitrum.css\";` \u2014 adjust the relative path to where your globals live."
     },
     {
       "name": "glass",
       "type": "registry:ui",
       "title": "Glass",
       "description": "The material primitive: refractive glass surfaces with engine detection, shared filter definitions, and pointer sheen.",
-      "dependencies": ["radix-ui"],
-      "registryDependencies": ["https://vitrum.dev/r/theme.json", "utils"],
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/theme.json",
+        "utils"
+      ],
       "files": [
-        { "path": "registry/vitrum/ui/glass.tsx", "type": "registry:ui" },
-        { "path": "registry/vitrum/ui/glass-root.tsx", "type": "registry:ui" },
-        { "path": "registry/vitrum/ui/glass-defs.tsx", "type": "registry:ui" },
-        { "path": "registry/vitrum/ui/glass-watcher.tsx", "type": "registry:ui" },
-        { "path": "registry/vitrum/lib/glass-filter.ts", "type": "registry:lib" },
-        { "path": "registry/vitrum/lib/glass-engine.ts", "type": "registry:lib" },
-        { "path": "registry/vitrum/hooks/use-sheen.ts", "type": "registry:hook" },
-        { "path": "registry/vitrum/hooks/use-glass-engine.ts", "type": "registry:hook" }
+        {
+          "path": "registry/vitrum/ui/glass.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/vitrum/ui/glass-root.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/vitrum/ui/glass-defs.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/vitrum/ui/glass-watcher.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/vitrum/lib/glass-filter.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/vitrum/lib/glass-engine.ts",
+          "type": "registry:lib"
+        },
+        {
+          "path": "registry/vitrum/hooks/use-sheen.ts",
+          "type": "registry:hook"
+        },
+        {
+          "path": "registry/vitrum/hooks/use-glass-engine.ts",
+          "type": "registry:hook"
+        }
       ],
       "docs": "Render <GlassRoot/> once at the top of <body> to enable refraction. Without it, surfaces render in the frost engine."
     },
@@ -40,10 +69,16 @@
       "name": "aurora-field",
       "type": "registry:ui",
       "title": "Aurora Field",
-      "description": "Ambient gradient backdrop — three drifting light blobs with a noise tile, zero JavaScript. Glass needs light behind it; this is the light.",
-      "registryDependencies": ["https://vitrum.dev/r/theme.json", "utils"],
+      "description": "Ambient gradient backdrop \u2014 three drifting light blobs with a noise tile, zero JavaScript. Glass needs light behind it; this is the light.",
+      "registryDependencies": [
+        "https://vitrum.dev/r/theme.json",
+        "utils"
+      ],
       "files": [
-        { "path": "registry/vitrum/ui/aurora-field.tsx", "type": "registry:ui" }
+        {
+          "path": "registry/vitrum/ui/aurora-field.tsx",
+          "type": "registry:ui"
+        }
       ]
     },
     {
@@ -51,17 +86,530 @@
       "type": "registry:ui",
       "title": "Button",
       "description": "A pill of glass. Variants for accent, film, destructive, ghost, and link.",
-      "dependencies": ["radix-ui", "class-variance-authority"],
-      "registryDependencies": ["https://vitrum.dev/r/glass.json", "utils"],
-      "files": [{ "path": "registry/vitrum/ui/button.tsx", "type": "registry:ui" }]
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
     },
     {
       "name": "card",
       "type": "registry:ui",
       "title": "Card",
       "description": "A slab of glass with header, content, and footer anatomy.",
-      "registryDependencies": ["https://vitrum.dev/r/glass.json", "utils"],
-      "files": [{ "path": "registry/vitrum/ui/card.tsx", "type": "registry:ui" }]
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Badge",
+      "description": "A sliver of film glass for labels and counts.",
+      "dependencies": [
+        "radix-ui",
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Input",
+      "description": "A text field sunk into the surface \u2014 a recessed well rather than a raised slab.",
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Textarea",
+      "description": "A multiline well with content-aware sizing.",
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Skeleton",
+      "description": "Loading placeholder with a specular sweep gliding across the surface.",
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Alert",
+      "description": "An inline pane of tinted glass for callouts and statuses.",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Identity disc with a glass rim and a film fallback.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "A recessed well that fills with light when checked.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Exclusive choices with roving keyboard focus.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Switch",
+      "description": "A disc of glass riding a recessed track, refracting as it slides.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Value selection with a refractive glass thumb.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "title": "Progress",
+      "description": "Linear bar, ring, and spinner \u2014 liquid light measuring completion.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "title": "Select",
+      "description": "A listbox in a veil of glass, fully keyboard-driven.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "title": "Dialog",
+      "description": "A modal veil centered over a frosted scrim.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "title": "Sheet",
+      "description": "An edge-anchored veil panel for secondary surfaces.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Popover",
+      "description": "Anchored content in a floating veil.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "A film of glass naming whatever the pointer rests on.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Dropdown Menu",
+      "description": "Menus, submenus, checkboxes, and radio items in veiled glass.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Tabs",
+      "description": "Sectioned content with an accent underline.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "segmented-control",
+      "type": "registry:ui",
+      "title": "Segmented Control",
+      "description": "Equal segments selected by a sliding pane of glass that refracts the labels it passes.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/segmented-control.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "title": "Accordion",
+      "description": "Vertically collapsing sections with sprung reveals.",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "title": "Command",
+      "description": "Fast keyboard-first command palette in a glass veil.",
+      "dependencies": [
+        "radix-ui",
+        "cmdk",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils",
+        "https://vitrum.dev/r/dialog.json"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toaster",
+      "type": "registry:ui",
+      "title": "Toast",
+      "description": "Notification slabs that stack without blurring each other.",
+      "dependencies": [
+        "sonner",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils",
+        "https://vitrum.dev/r/progress.json"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/toaster.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navbar",
+      "type": "registry:ui",
+      "title": "Navbar",
+      "description": "A floating glass bar that condenses on scroll.",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/navbar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "gauge",
+      "type": "registry:ui",
+      "title": "Gauge",
+      "description": "A vessel of glass holding liquid light \u2014 a meter with a meniscus.",
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/gauge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dock",
+      "type": "registry:ui",
+      "title": "Dock",
+      "description": "A shelf of glass whose icons swell toward the pointer.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/dock.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "lens",
+      "type": "registry:ui",
+      "title": "Lens",
+      "description": "A magnifying disc that trails the pointer and bends the surface beneath it.",
+      "dependencies": [
+        "motion"
+      ],
+      "registryDependencies": [
+        "https://vitrum.dev/r/glass.json",
+        "utils"
+      ],
+      "files": [
+        {
+          "path": "registry/vitrum/ui/lens.tsx",
+          "type": "registry:ui"
+        }
+      ]
     }
   ]
 }

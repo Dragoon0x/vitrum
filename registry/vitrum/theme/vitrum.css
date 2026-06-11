@@ -204,6 +204,12 @@
   initial-value: 0;
 }
 
+@property --glass-tint-a {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0.55;
+}
+
 @layer components {
   /* ------------------------------------------------------------------ */
   /*  Glass surface structure                                            */
@@ -213,7 +219,8 @@
   /*  ::after   — specular ring (masked 1px gradient border)             */
   /* ------------------------------------------------------------------ */
 
-  [data-glass] {
+  [data-glass],
+  .vt-toast {
     position: relative;
     border-radius: var(--glass-radius, var(--radius-pane));
     transform: translateZ(0);
@@ -222,10 +229,13 @@
     --glass-tint-a: var(--glass-a-pane);
     --glass-tint-c: var(--glass-tint);
     --glass-frost: blur(var(--glass-blur)) saturate(var(--glass-saturate)) brightness(var(--glass-brightness));
-    transition: --vt-sheen-o 240ms var(--ease-out-soft);
+    transition:
+      --vt-sheen-o 240ms var(--ease-out-soft),
+      --glass-tint-a 280ms var(--ease-out-soft);
   }
 
-  [data-glass]::before {
+  [data-glass]::before,
+  .vt-toast::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -246,7 +256,8 @@
       inset 0 -10px 24px -14px var(--glass-inner-shade);
   }
 
-  [data-glass]::after {
+  [data-glass]::after,
+  .vt-toast::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -299,6 +310,13 @@
     --glass-refract: initial;
   }
 
+  /* toast material: slab weight, raised tint so stacked toasts stay legible */
+  .vt-toast {
+    --glass-blur: 28px;
+    --glass-tint-a: calc(var(--glass-a-slab) + 0.08);
+    --glass-refract: url(#vt-rf-round-2);
+  }
+
   /* ---- tints ---- */
 
   [data-glass][data-tint="accent"] {
@@ -335,14 +353,20 @@
     --glass-refract: url(#vt-rf-circle-3);
   }
 
+  .vt-refract-lens {
+    --glass-refract: url(#vt-rf-lens);
+  }
+
   /* ---- engines ---- */
 
-  [data-glass-engine="refract"] [data-glass]::before {
+  [data-glass-engine="refract"] [data-glass]::before,
+  [data-glass-engine="refract"] .vt-toast::before {
     -webkit-backdrop-filter: var(--glass-refract, var(--glass-frost));
     backdrop-filter: var(--glass-refract, var(--glass-frost));
   }
 
-  [data-glass-engine="solid"] [data-glass]::before {
+  [data-glass-engine="solid"] [data-glass]::before,
+  [data-glass-engine="solid"] .vt-toast::before {
     -webkit-backdrop-filter: none;
     backdrop-filter: none;
     background: var(--surface);
@@ -532,6 +556,28 @@
     }
   }
 
+  @keyframes vt-pop-center-in {
+    from {
+      opacity: 0;
+      transform: translate(-50%, calc(-50% + 10px)) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  @keyframes vt-pop-center-out {
+    from {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: translate(-50%, calc(-50% + 6px)) scale(0.97);
+    }
+  }
+
   /* collapse: the one sanctioned height animation (content reveal) */
   @keyframes vt-collapse-down {
     from {
@@ -571,6 +617,40 @@
 
   .vt-scrim[data-state="closed"] {
     animation: vt-fade-out 180ms var(--ease-in-soft);
+  }
+
+  /* centered overlays carry their centering inside the keyframes */
+  .vt-pop-center[data-state="open"] {
+    animation: vt-pop-center-in var(--dur-3) var(--ease-pop);
+  }
+
+  .vt-pop-center[data-state="closed"] {
+    animation: vt-pop-center-out 180ms var(--ease-in-soft);
+  }
+
+  .vt-sheet-right[data-state="open"] {
+    animation: vt-slide-in-right var(--dur-4) var(--ease-pop);
+  }
+  .vt-sheet-right[data-state="closed"] {
+    animation: vt-slide-out-right var(--dur-3) var(--ease-in-soft);
+  }
+  .vt-sheet-left[data-state="open"] {
+    animation: vt-slide-in-left var(--dur-4) var(--ease-pop);
+  }
+  .vt-sheet-left[data-state="closed"] {
+    animation: vt-slide-out-left var(--dur-3) var(--ease-in-soft);
+  }
+  .vt-sheet-top[data-state="open"] {
+    animation: vt-slide-in-top var(--dur-4) var(--ease-pop);
+  }
+  .vt-sheet-top[data-state="closed"] {
+    animation: vt-slide-out-top var(--dur-3) var(--ease-in-soft);
+  }
+  .vt-sheet-bottom[data-state="open"] {
+    animation: vt-slide-in-bottom var(--dur-4) var(--ease-pop);
+  }
+  .vt-sheet-bottom[data-state="closed"] {
+    animation: vt-slide-out-bottom var(--dur-3) var(--ease-in-soft);
   }
 
   /* ------------------------------------------------------------------ */
@@ -642,12 +722,22 @@
     }
 
     .vt-pop[data-state="open"],
-    .vt-scrim[data-state="open"] {
+    .vt-pop-center[data-state="open"],
+    .vt-scrim[data-state="open"],
+    .vt-sheet-right[data-state="open"],
+    .vt-sheet-left[data-state="open"],
+    .vt-sheet-top[data-state="open"],
+    .vt-sheet-bottom[data-state="open"] {
       animation: vt-fade-in var(--dur-2) var(--ease-out-soft);
     }
 
     .vt-pop[data-state="closed"],
-    .vt-scrim[data-state="closed"] {
+    .vt-pop-center[data-state="closed"],
+    .vt-scrim[data-state="closed"],
+    .vt-sheet-right[data-state="closed"],
+    .vt-sheet-left[data-state="closed"],
+    .vt-sheet-top[data-state="closed"],
+    .vt-sheet-bottom[data-state="closed"] {
       animation: vt-fade-out 140ms var(--ease-in-soft);
     }
   }

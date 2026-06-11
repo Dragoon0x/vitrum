@@ -132,9 +132,45 @@ export const GLASS_FILTER_PRESETS: readonly GlassFilterSpec[] = [
   { id: "vt-rf-circle-3", shape: "circle", displace: DISPLACE_BY_INTENSITY[3], blur: 2, saturate: 1.6, aberration: true },
 ];
 
-export type GlassFilterId = (typeof GLASS_FILTER_PRESETS)[number]["id"];
+export type GlassFilterId =
+  | (typeof GLASS_FILTER_PRESETS)[number]["id"]
+  | typeof LENS_FILTER_ID;
+
+/**
+ * The lens is a different optic: instead of a flat center with bent
+ * edges, the whole surface bends toward its middle — true magnification.
+ */
+export const LENS_FILTER_ID = "vt-rf-lens";
+
+function buildLensFilter(): string {
+  const size = 240;
+  const stops = (axis: "x" | "y") => {
+    const at = (offset: number, v: number) => {
+      const rgb = axis === "x" ? `${v},0,0` : `0,${v},0`;
+      return `<stop offset="${offset}" stop-color="rgb(${rgb})"/>`;
+    };
+    return at(0, 255) + at(1, 1);
+  };
+  const map =
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}">` +
+    `<linearGradient id="x" x1="0" y1="0" x2="1" y2="0">${stops("x")}</linearGradient>` +
+    `<linearGradient id="y" x1="0" y1="0" x2="0" y2="1">${stops("y")}</linearGradient>` +
+    `<rect width="${size}" height="${size}" fill="url(#x)"/>` +
+    `<rect width="${size}" height="${size}" fill="url(#y)" style="mix-blend-mode:plus-lighter"/>` +
+    `</svg>`;
+  const href = `data:image/svg+xml,${encodeURIComponent(map)}`;
+
+  return (
+    `<filter id="${LENS_FILTER_ID}" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">` +
+    `<feImage href="${href}" x="0%" y="0%" width="100%" height="100%" preserveAspectRatio="none" result="map"/>` +
+    `<feDisplacementMap in="SourceGraphic" in2="map" scale="56" xChannelSelector="R" yChannelSelector="G" result="bent"/>` +
+    `<feGaussianBlur in="bent" stdDeviation="0.4" result="soft"/>` +
+    `<feColorMatrix in="soft" type="saturate" values="1.25"/>` +
+    `</filter>`
+  );
+}
 
 /** All preset filter definitions, concatenated for <defs>. */
 export function buildPresetDefs(): string {
-  return GLASS_FILTER_PRESETS.map(buildRefractionFilter).join("");
+  return GLASS_FILTER_PRESETS.map(buildRefractionFilter).join("") + buildLensFilter();
 }
