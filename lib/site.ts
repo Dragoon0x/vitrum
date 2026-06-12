@@ -3,7 +3,7 @@ export const siteConfig = {
   tagline: "Designed in glass.",
   description:
     "Interfaces cast in glass — refractive, luminous React components with a frost fallback everywhere else.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://vitrum.dev",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://vitrumui.vercel.app",
 } as const;
 
 export function absoluteUrl(path = "/"): string {

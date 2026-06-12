@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "vitrum",
-  "homepage": "https://vitrum.dev",
+  "homepage": "https://vitrumui.vercel.app",
   "items": [
     {
       "name": "theme",
@@ -26,7 +26,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/theme.json",
+        "https://vitrumui.vercel.app/r/theme.json",
         "utils"
       ],
       "files": [
@@ -79,7 +79,7 @@
       "title": "Aurora Field",
       "description": "Ambient gradient backdrop \u2014 three drifting light blobs with a noise tile, zero JavaScript. Glass needs light behind it; this is the light.",
       "registryDependencies": [
-        "https://vitrum.dev/r/theme.json",
+        "https://vitrumui.vercel.app/r/theme.json",
         "utils"
       ],
       "files": [
@@ -95,7 +95,7 @@
       "title": "Glass Scene",
       "description": "Scene refraction: bend any content you own, in every modern browser. A backdrop, any number of lenses, one baked map.",
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -116,7 +116,7 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -132,7 +132,7 @@
       "title": "Card",
       "description": "A slab of glass with header, content, and footer anatomy.",
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -152,7 +152,7 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -168,7 +168,7 @@
       "title": "Input",
       "description": "A text field sunk into the surface \u2014 a recessed well rather than a raised slab.",
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -184,7 +184,7 @@
       "title": "Textarea",
       "description": "A multiline well with content-aware sizing.",
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -200,7 +200,7 @@
       "title": "Skeleton",
       "description": "Loading placeholder with a specular sweep gliding across the surface.",
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -219,7 +219,7 @@
         "class-variance-authority"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -238,7 +238,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -258,7 +258,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -277,7 +277,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -296,7 +296,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -315,7 +315,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -334,7 +334,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -354,7 +354,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -374,7 +374,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -394,7 +394,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -413,7 +413,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -432,7 +432,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -452,7 +452,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -471,7 +471,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -490,7 +490,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -510,7 +510,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -531,9 +531,9 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils",
-        "https://vitrum.dev/r/dialog.json"
+        "https://vitrumui.vercel.app/r/dialog.json"
       ],
       "files": [
         {
@@ -552,9 +552,9 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils",
-        "https://vitrum.dev/r/progress.json"
+        "https://vitrumui.vercel.app/r/progress.json"
       ],
       "files": [
         {
@@ -572,7 +572,7 @@
         "radix-ui"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -588,7 +588,7 @@
       "title": "Gauge",
       "description": "A vessel of glass holding liquid light \u2014 a meter with a meniscus.",
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -607,7 +607,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -626,7 +626,7 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
+        "https://vitrumui.vercel.app/r/glass.json",
         "utils"
       ],
       "files": [
@@ -646,10 +646,10 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
-        "https://vitrum.dev/r/button.json",
-        "https://vitrum.dev/r/checkbox.json",
-        "https://vitrum.dev/r/input.json",
+        "https://vitrumui.vercel.app/r/glass.json",
+        "https://vitrumui.vercel.app/r/button.json",
+        "https://vitrumui.vercel.app/r/checkbox.json",
+        "https://vitrumui.vercel.app/r/input.json",
         "utils"
       ],
       "files": [
@@ -670,12 +670,12 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/avatar.json",
-        "https://vitrum.dev/r/badge.json",
-        "https://vitrum.dev/r/card.json",
-        "https://vitrum.dev/r/gauge.json",
-        "https://vitrum.dev/r/progress.json",
-        "https://vitrum.dev/r/segmented-control.json",
+        "https://vitrumui.vercel.app/r/avatar.json",
+        "https://vitrumui.vercel.app/r/badge.json",
+        "https://vitrumui.vercel.app/r/card.json",
+        "https://vitrumui.vercel.app/r/gauge.json",
+        "https://vitrumui.vercel.app/r/progress.json",
+        "https://vitrumui.vercel.app/r/segmented-control.json",
         "utils"
       ],
       "files": [
@@ -697,10 +697,10 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
-        "https://vitrum.dev/r/button.json",
-        "https://vitrum.dev/r/lens.json",
-        "https://vitrum.dev/r/slider.json",
+        "https://vitrumui.vercel.app/r/glass.json",
+        "https://vitrumui.vercel.app/r/button.json",
+        "https://vitrumui.vercel.app/r/lens.json",
+        "https://vitrumui.vercel.app/r/slider.json",
         "utils"
       ],
       "files": [
@@ -723,11 +723,11 @@
         "motion"
       ],
       "registryDependencies": [
-        "https://vitrum.dev/r/glass.json",
-        "https://vitrum.dev/r/badge.json",
-        "https://vitrum.dev/r/command.json",
-        "https://vitrum.dev/r/dock.json",
-        "https://vitrum.dev/r/navbar.json",
+        "https://vitrumui.vercel.app/r/glass.json",
+        "https://vitrumui.vercel.app/r/badge.json",
+        "https://vitrumui.vercel.app/r/command.json",
+        "https://vitrumui.vercel.app/r/dock.json",
+        "https://vitrumui.vercel.app/r/navbar.json",
         "utils"
       ],
       "files": [

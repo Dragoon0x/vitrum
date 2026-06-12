@@ -8,7 +8,7 @@ Vitrum is a component registry, not a package: components land in your project a
 
 ```bash
 # in a Tailwind v4 project initialized with the shadcn CLI
-npx shadcn@latest add https://vitrum.dev/r/button.json
+npx shadcn@latest add https://vitrumui.vercel.app/r/button.json
 ```
 
 Then import the stylesheet once in your global CSS (after Tailwind):
@@ -32,7 +32,7 @@ import { GlassRoot } from "@/components/ui/glass-root";
 Prefer a namespace? Add to `components.json`:
 
 ```json
-{ "registries": { "@vitrum": "https://vitrum.dev/r/{name}.json" } }
+{ "registries": { "@vitrum": "https://vitrumui.vercel.app/r/{name}.json" } }
 ```
 
 then `shadcn add @vitrum/dialog` — works for you and for AI editors via `shadcn mcp`.
@@ -63,7 +63,7 @@ Every knob is a custom property, overridable per instance:
 | `--glass-radius` | corner radius |
 | `--glass-edge` / `--glass-sheen` | specular ring and pointer light |
 
-Tune them live in the [Material Studio](https://vitrum.dev/studio) and export CSS or component props.
+Tune them live in the [Material Studio](https://vitrumui.vercel.app/studio) and export CSS or component props.
 
 ## Accessibility
 

@@ -31,7 +31,7 @@ for (const entry of readdirSync(dir)) {
   if (!entry.endsWith(".json")) continue;
   const file = join(dir, entry);
   const before = readFileSync(file, "utf8");
-  const after = before.replaceAll("https://vitrum.dev", trimmed);
+  const after = before.replaceAll("https://vitrumui.vercel.app", trimmed);
   if (after !== before) {
     writeFileSync(file, after);
     rewritten += 1;
